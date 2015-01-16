@@ -5,6 +5,15 @@ An extemely minimal statically compiled template population tool utilizing mruby
 Template syntax is a fairly familiar ERB although with the runtime being mruby, not all methods you're used to may be available. Given that templates rarely contain much more than simple iteration and string munging that shouldn't be a problem.
 
 ## Usage
+
+Templateer takes two arguments; data and template. Data may be `-` if piping JSON in to STDIN.
+
+To populate `template.erb` with `data.json`
+
+```./templateer data.json template.erb```
+
+To populate `template.erb` from STDIN
+
 ```echo '{"data": "value"}' | ./templateer - template.erb```
 
 Top level keys from the JSON will be assigned to class variables. In the example above, `<%= @data %>` would yield `value`.
