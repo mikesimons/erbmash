@@ -42,9 +42,6 @@ module Templateer
       evaluator = "
       class EvaluatorContext
         def __evaluate__ __merb_data__
-          __merb_data__.each do |k,v|
-            instance_variable_set \"@\#{k}\", v
-          end
           @params = __merb_data__
           #{merb.source}
         end
@@ -57,10 +54,9 @@ module Templateer
         return ::MERB.out
       rescue Exception => e
         raise e if e.is_a? Error
-        # TODO rewrite line nummer
         str = e.inspect.split("\n").map do |line|
           parts = line.split(':')
-          parts[1] = parts[1].to_i - 9
+          parts[1] = parts[1].to_i - 5
           parts.join(':')
         end.join("\n")
         raise TemplateError.new(str)
@@ -69,7 +65,7 @@ module Templateer
   end
 
   def self.handle_error e
-    puts e.message
+    STDERR.puts e.message
     exit e.code
   end
 end
