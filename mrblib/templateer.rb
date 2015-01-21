@@ -37,7 +37,7 @@ module Templateer
 
     def evaluate data, template
       merb = ::MERB.new
-      merb.template = template
+      merb.template = template.gsub('\\', '\\'*2)
 
       evaluator = "
       class EvaluatorContext
