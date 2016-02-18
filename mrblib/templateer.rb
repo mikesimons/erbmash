@@ -2,8 +2,8 @@ module Templateer
   VERSION = '0.0.1'
 
   class EvaulationContext
-    def initialize params
-      @params = params
+    def initialize data
+      @data = data
     end
   end
 
