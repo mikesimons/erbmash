@@ -36,7 +36,7 @@ MRuby::Build.new do |conf|
 
   # user-defined GEMs
   
-  conf.gem :git => 'https://github.com/pbosetti/mruby-merb.git'
+  conf.gem :git => 'https://github.com/jbreeden/mruby-erb.git'
   #conf.gem :git => 'https://github.com/iij/mruby-tempfile.git'
   #conf.gem :git => 'https://github.com/mattn/mruby-thread.git'
 
@@ -49,7 +49,7 @@ MRuby::Build.new do |conf|
   conf.gem :git => 'https://github.com/ksss/mruby-file-stat'
   
   # JSON & YAML
-  conf.gem :git => 'https://github.com/mattn/mruby-json.git'
+  # conf.gem :git => 'https://github.com/mattn/mruby-json.git'
   conf.gem :git => 'https://github.com/AndrewBelt/mruby-yaml.git'
 
   # HTTP support

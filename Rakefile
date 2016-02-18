@@ -68,7 +68,7 @@ file "build/mruby/build/host/lib/libmruby.a" => [ "build/mruby", "build_config" 
 end
 
 file "build/#{TARGET_BIN}" => [ "build/mruby/build/host/lib/libmruby.a" ] do
-  sh "gcc -O2 -Ibuild/mruby/include driver.c build/mruby/build/host/lib/libmruby.a -lm -ldl -l:/usr/lib/x86_64-linux-gnu/libyaml.a -o build/#{TARGET_BIN}"
+  sh "gcc -O2 -static -Ibuild/mruby/include driver.c build/mruby/build/host/lib/libmruby.a -lm -ldl -l:libyaml.a -o build/#{TARGET_BIN}"
 end
 
 task :default => [ "build/#{TARGET_BIN}" ]

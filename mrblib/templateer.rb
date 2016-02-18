@@ -1,6 +1,12 @@
 module Templateer
   VERSION = '0.0.1'
 
+  class EvaulationContext
+    def initialize params
+      @params = params
+    end
+  end
+
   class Templateer
     def initialize data_file, template_file
       @data_file = data_file
@@ -24,8 +30,8 @@ module Templateer
       end
 
       begin
-        return JSON.parse(file_handle.read)
-      rescue JSON::ParserError => e
+        return YAML.load(file_handle.read)
+      rescue => e
         raise DataParseError.new(file, e.to_s)
       end 
     end
@@ -36,31 +42,9 @@ module Templateer
     end
 
     def evaluate data, template
-      merb = ::MERB.new
-      merb.template = template.gsub('\\', '\\'*2)
-
-      evaluator = "
-      class EvaluatorContext
-        def __evaluate__ __merb_data__
-          @params = __merb_data__
-          #{merb.source}
-        end
-      end
-      "
-
-      begin
-        eval(evaluator, nil, @template_file, 0)
-        (EvaluatorContext.new).__evaluate__(data)
-        return ::MERB.out
-      rescue Exception => e
-        raise e if e.is_a? Error
-        str = e.inspect.split("\n").map do |line|
-          parts = line.split(':')
-          parts[1] = parts[1].to_i - 5
-          parts.join(':')
-        end.join("\n")
-        raise TemplateError.new(str)
-      end
+      erb = ERB.new(template)
+      context = EvaulationContext.new data
+      return erb.result(context)
     end
   end
 
