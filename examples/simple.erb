@@ -1,0 +1,16 @@
+<%# Print data verbatim -%>
+<%= data %>
+
+<%# Iterate data -%>
+<% data["test_array"].each do |item| -%>
+<%= item %>
+<% end -%>
+
+<%# Iterate KV data -%>
+<% data["test_hash"].each do |k, v| -%>
+K: <%= k %>, V: <%= v %>
+<% end -%>
+
+<%# Truthy helper -%>
+<%= "Truthy helper positive (y, yes, true, Fixnum != 0): #{["y", "yes", true, 1].map(&:truthy?)}" %>
+<%= "Truthy helper negative (n, no, false, 0): #{["n", "no", false, 0].map(&:truthy?)}" %>

@@ -1,1 +1,3 @@
-build/*
+vendor/
+libmruby.a
+templateer

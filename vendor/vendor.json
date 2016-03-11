@@ -1,0 +1,11 @@
+{
+	"comment": "",
+	"ignore": "",
+	"package": [
+		{
+			"path": "github.com/mikesimons/go-mruby",
+			"revision": "7ffe51c3a612b2f71b565a7074cef963e1b6a378",
+			"revisionTime": "2016-03-07T23:46:00Z"
+		}
+	]
+}
