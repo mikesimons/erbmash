@@ -1,6 +1,6 @@
 # Templateer
 
-Templateer is a minimal wrapper around [mruby-erb](https://github.com/jbreeden/mruby-erb.git) and [mruby-yaml](https://github.com/AndrewBelt/mruby-yaml.git) usnig the [go-mruby](https://github.com/mitchellh/go-mruby) bindings. It enables you to read json or yaml input and populate an erb template with it.
+Templateer is a minimal wrapper around [mruby-erb](https://github.com/jbreeden/mruby-erb.git) and [mruby-yaml](https://github.com/AndrewBelt/mruby-yaml.git) using the [go-mruby](https://github.com/mitchellh/go-mruby) bindings. It enables you to read json or yaml input and populate an erb template with it.
 
 It is intended t be used in conjunction with other tools to provide the json or yaml data (e.g. `etcdctl`, `consul`, web services or manually written config). 
 
