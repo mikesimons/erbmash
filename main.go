@@ -62,14 +62,18 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
+		var data []byte
+
 		erb, err := readFileOrStdin(c.String("erb"))
 		if err != nil {
 			log.Fatalf("Could not open ERB file (%s): %s", c.String("erb"), err)
 		}
 
-		data, err := readFileOrStdin(c.String("data"))
-		if err != nil {
-			log.Fatalf("Could not open data file (%s): %s", c.String("data"), err)
+		if c.String("data") != "" {
+			data, err = readFileOrStdin(c.String("data"))
+			if err != nil {
+				log.Fatalf("Could not open data file (%s): %s", c.String("data"), err)
+			}
 		}
 
 		mrb := mruby.NewMrb()
