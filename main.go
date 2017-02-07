@@ -81,7 +81,7 @@ func main() {
 		//opts.Set(mrb.StringValue("each"), mrb.StringValue(*eachKey))
 
 		mrb.LoadString(`
-			class Ctx
+			class Erbmash
 				def initialize data
 					@__data = data
 				end
@@ -113,7 +113,7 @@ func main() {
 
 		processCode := `|template, data|
 			erb = ERB.new(template, nil, "-", "$_erbout")
-			ctx = Ctx.new data
+			ctx = Erbmash.new data
 			erb.result(ctx)
 		`
 

@@ -1,13 +1,13 @@
-# Templateer
+# erbmash
 
-Templateer is a minimal wrapper around [mruby-erb](https://github.com/jbreeden/mruby-erb.git) and [mruby-yaml](https://github.com/AndrewBelt/mruby-yaml.git) using the [go-mruby](https://github.com/mitchellh/go-mruby) bindings. It enables you to read json or yaml input and populate an erb template with it.
+erbmash is a minimal wrapper around [mruby-erb](https://github.com/jbreeden/mruby-erb.git) and [mruby-yaml](https://github.com/AndrewBelt/mruby-yaml.git) using the [go-mruby](https://github.com/mitchellh/go-mruby) bindings. It allows you to mash json or yaml input and erb templates together without a ruby runtime.
 
 It is intended t be used in conjunction with other tools to provide the json or yaml data (e.g. `etcdctl`, `consul`, web services or manually written config). 
 
 Watch behaviour similar to `confd` should be possible using these external tools but I haven't played with that. A PR (or an issue if it's not possible) with examples would be appreciated if it works!
 
 # Usage
-Usage is pretty simple: `templateer --data some_json_or_yaml_file --erb some_erb_file`
+Usage is pretty simple: `erbmash --data some_json_or_yaml_file --erb some_erb_file`
 
 See the examples directory for examples of templates.
 

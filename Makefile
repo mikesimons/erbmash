@@ -3,10 +3,12 @@ GO_MRUBY_PATH ?= vendor/github.com/mikesimons/go-mruby
 MRUBY_PATH = ${GO_MRUBY_PATH}/vendor/mruby
 
 all:
-	docker run -i -v ${GOPATH}:/go -e http_proxy=${http_proxy} -e https_proxy=${https_proxy} --net=host -t templateer-build
+	docker build --build-arg=http_proxy --build-arg=https_proxy -t erbmash-build .
+	docker run -i -v ${GOPATH}:/go -e http_proxy=${http_proxy} -e https_proxy=${https_proxy} --net=host -t erbmash-build
 
-templateer: libmruby.a
+erbmash: libmruby.a
 	go build --ldflags '-extldflags "-static"'
+	upx erbmash
 
 clean:
 	rm -rf ${GO_MRUBY_PATH}/vendor
@@ -23,4 +25,4 @@ $(MRUBY_PATH):
 	cd ${MRUBY_PATH} && git reset --hard && git clean -fdx
 	cd ${MRUBY_PATH} && git checkout ${MRUBY_COMMIT}
 
-.PHONY: all templateer clean test
+.PHONY: all erbmash clean test
