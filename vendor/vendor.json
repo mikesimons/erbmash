@@ -1,11 +1,16 @@
 {
 	"comment": "",
-	"ignore": "",
+	"ignore": "test",
 	"package": [
 		{
 			"path": "github.com/mikesimons/go-mruby",
 			"revision": "7ffe51c3a612b2f71b565a7074cef963e1b6a378",
 			"revisionTime": "2016-03-07T23:46:00Z"
+		},
+		{
+			"path": "gopkg.in/urfave/cli.v1",
+			"revision": "0bdeddeeb0f650497d603c4ad7b20cfe685682f6",
+			"revisionTime": "2016-11-21T20:36:10-08:00"
 		}
 	]
 }

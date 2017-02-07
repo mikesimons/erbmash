@@ -1,6 +1,6 @@
 # Examples
 
-`templateer test-data.json simple.erb`
+`templateer --data test-data.json --erb simple.erb`
 
 ```
 {"test_array"=>["1234", "5678", "90"], "test_hash"=>{"k1"=>"v1", "k2"=>"v2"}}
