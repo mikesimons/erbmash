@@ -1,4 +1,4 @@
-MRUBY_COMMIT ?= 22464fe5a0a10f2b077eaba109ce1e912e4a77de
+MRUBY_COMMIT ?= bf4e79cc62af809138bc7db7e54ece67080b5fa8
 GO_MRUBY_PATH ?= vendor/github.com/mikesimons/go-mruby
 MRUBY_PATH = ${GO_MRUBY_PATH}/vendor/mruby
 

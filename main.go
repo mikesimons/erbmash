@@ -86,7 +86,7 @@ func main() {
 	}
 
 	processCode := `|template, data|
-		erb = ERB.new(template, nil, "-")
+		erb = ERB.new(template, nil, "-", "$_erbout")
 		ctx = Ctx.new data
 		erb.result(ctx)
 	`
